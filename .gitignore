@@ -48,4 +48,3 @@ next-env.d.ts
 
 # wrangler
 .wrangler
-wrangler.jsonc
