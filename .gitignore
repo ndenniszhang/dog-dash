@@ -47,4 +47,5 @@ next-env.d.ts
 .open-next
 
 # wrangler
+.wrangler
 wrangler.jsonc
