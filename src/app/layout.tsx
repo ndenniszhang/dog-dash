@@ -8,6 +8,7 @@ import {
   SignedOut,
   UserButton,
 } from "@clerk/nextjs";
+import { ThemeProvider } from "../theme/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,8 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ThemeProvider>
+          <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
           <header className="p-4 border-b border-gray-200">
             <div className="container mx-auto flex justify-between items-center">
               <h1 className="text-xl font-bold">Dog Dash</h1>
@@ -52,6 +54,7 @@ export default function RootLayout({
             </SignedIn>
           </main>
         </body>
+        </ThemeProvider>
       </html>
     </ClerkProvider>
   );
