@@ -20,11 +20,11 @@ This document outlines the step-by-step implementation plan for the Dog-Dash des
 - [x] Create `useTheme` hook for easy theme access
 - [x] Add theme utility functions (themeGet)
 
-### 1.3 Base Styles
-- [ ] Create global styles
-  - CSS resets
-  - Base typography
-  - Common utility classes
+### 1.3 Base Styles ✅
+- [x] Create global styles
+  - [x] CSS resets
+  - [x] Base typography
+  - [x] Common utility classes
 
 ## Phase 2: Core Components
 
