@@ -10,10 +10,12 @@ app should have a modern, polished design similar to uber, grubhub, or airbnb
 
 project requirements documents are in ai\docs\prd
 generated feature documents should go in ai\docs\features, in it's respective folders
-update respective implementaion-plan.md task after implementation is complete.
+
 
 all UI/CSS framework descision have to be compatible React Native + EXPO for cross platform consistency
 always use best practice for implementation
+
+after each implementation verify project against documentation and update respective implementaion-plan.md
 </project>
 
 <code>
