@@ -13,11 +13,17 @@ project theme documenta are in ai/docs/theme
 generated documents should go in ai/docs, in it's respective folders
 
 update respective implementaion-plan.md task when feature/theme is complete.
+
+always use best practice for implementation
 <project>
 
 <code>
 do not generate code until i say so.
-do not try to install dependencies. tell me what dependencies to install and wait for to install then verify.
+do not try to install dependencies. tell me what dependencies to install and wait for install then verify.
+
+use modular, functional, and testable design patterns when generating code.
+
+generate unit tests for generated code.
 <code>
 
 <features>
