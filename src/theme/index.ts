@@ -1,12 +1,37 @@
-import { ColorPalette } from './colors';
 import { Typography } from './typography';
 import { Spacing } from './spacing';
+import colorTokens from './colors';
 
 export type ThemeMode = 'light' | 'dark';
 
+// Define color structure types
+type TextColors = {
+  primary: string;
+  secondary: string;
+  disabled: string;
+  inverse: string;
+};
+
+type SurfaceColors = {
+  background: string;
+  paper: string;
+  border: string;
+  divider: string;
+};
+
+// Define a more flexible color palette type that allows string values
+export interface ThemeColorPalette {
+  primary: Record<string, string>;
+  semantic: Record<string, Record<string, string>>;
+  neutral: Record<string, string>;
+  text: TextColors;
+  surface: SurfaceColors;
+  [key: string]: unknown;
+}
+
 type ThemeColors = {
-  light: ColorPalette;
-  dark: ColorPalette;
+  light: ThemeColorPalette;
+  dark: ThemeColorPalette;
 };
 
 export interface Theme extends Record<string, unknown> {
@@ -14,26 +39,52 @@ export interface Theme extends Record<string, unknown> {
   typography: Typography;
   space: Spacing;
   currentMode: ThemeMode;
-  getCurrentColors: () => ColorPalette;
+  getCurrentColors: () => ThemeColorPalette;
   [key: string]: unknown; // Index signature
 }
 
 // Import theme modules
-import colors from './colors';
 import typography from './typography';
 import space from './spacing';
+
+// Create light and dark color palettes
+const lightColors: ThemeColorPalette = {
+  ...colorTokens,
+  text: {
+    primary: colorTokens.neutral[900],
+    secondary: colorTokens.neutral[600],
+    disabled: colorTokens.neutral[400],
+    inverse: '#FFFFFF',
+  },
+  surface: {
+    background: '#FFFFFF',
+    paper: colorTokens.neutral[50],
+    border: colorTokens.neutral[200],
+    divider: colorTokens.neutral[100],
+  },
+};
+
+const darkColors: ThemeColorPalette = {
+  ...colorTokens,
+  text: {
+    primary: '#F8FAFC',
+    secondary: '#94A3B8',
+    disabled: '#475569',
+    inverse: '#0F172A',
+  },
+  surface: {
+    background: '#0F172A',
+    paper: '#1E293B',
+    border: '#334155',
+    divider: '#1E293B',
+  },
+};
 
 // Base theme configuration
 export const theme: Theme = {
   colors: {
-    light: {
-      ...colors,
-      // Light mode color overrides can be added here
-    },
-    dark: {
-      ...colors,
-      // Dark mode color overrides can be added here
-    },
+    light: lightColors,
+    dark: darkColors,
   },
   typography,
   space,

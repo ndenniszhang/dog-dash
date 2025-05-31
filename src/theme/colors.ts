@@ -82,16 +82,8 @@ export const dark = {
   },
 } as const;
 
-export type ColorPalette = {
-  primary: typeof primary;
-  semantic: typeof semantic;
-  neutral: typeof neutral;
-  text: typeof text;
-  surface: typeof surface;
-  dark: typeof dark;
-};
-
-export const colors: ColorPalette = {
+// Export all color tokens as a single object
+const colorTokens = {
   primary,
   semantic,
   neutral,
@@ -100,4 +92,4 @@ export const colors: ColorPalette = {
   dark,
 };
 
-export default colors;
+export default colorTokens;

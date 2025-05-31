@@ -71,6 +71,58 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({
       return this.colors[this.currentMode];
     },
   }), [currentMode, customTheme]);
+  
+  // Apply CSS variables based on the current theme
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      const root = document.documentElement;
+      const colors = theme.getCurrentColors();
+      
+      // Apply text colors
+      if (colors.text) {
+        root.style.setProperty('--color-text-primary', colors.text.primary);
+        root.style.setProperty('--color-text-secondary', colors.text.secondary);
+        root.style.setProperty('--color-text-disabled', colors.text.disabled);
+        root.style.setProperty('--color-text-inverse', colors.text.inverse);
+      }
+      
+      // Apply surface colors
+      if (colors.surface) {
+        root.style.setProperty('--color-background', colors.surface.background);
+        root.style.setProperty('--color-surface', colors.surface.paper);
+        root.style.setProperty('--color-border', colors.surface.border);
+        root.style.setProperty('--color-divider', colors.surface.divider);
+      }
+      
+      // Apply primary colors
+      if (colors.primary) {
+        Object.entries(colors.primary).forEach(([key, value]) => {
+          if (value) root.style.setProperty(`--color-primary-${key}`, value.toString());
+        });
+      }
+      
+      // Apply neutral colors
+      if (colors.neutral) {
+        Object.entries(colors.neutral).forEach(([key, value]) => {
+          if (value) root.style.setProperty(`--color-neutral-${key}`, value.toString());
+        });
+      }
+      
+      // Apply semantic colors
+      if (colors.semantic) {
+        Object.entries(colors.semantic).forEach(([category, values]) => {
+          if (values) {
+            Object.entries(values as Record<string, string>).forEach(([key, value]) => {
+              if (value) root.style.setProperty(`--color-${category}-${key}`, value.toString());
+            });
+          }
+        });
+      }
+      
+      // Add a data-theme attribute for additional CSS selectors
+      root.setAttribute('data-theme', currentMode);
+    }
+  }, [currentMode, theme]);
 
   return (
     <ThemeContext.Provider value={{ 
