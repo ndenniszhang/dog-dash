@@ -12,8 +12,8 @@ export const StyleGuide: React.FC = () => {
   return (
     <div className="p-4">
       <div className="mb-8">
-        <h1>Dog-Dash Design System</h1>
-        <p>A comprehensive design system for the Dog-Dash application.</p>
+        <h1>Design System</h1>
+        <p>A comprehensive design system for the application with light and dark mode support.</p>
         <button 
           onClick={toggleTheme}
           className="bg-primary text-inverse rounded-lg p-3 transition-fast hover:opacity-90"
@@ -88,7 +88,7 @@ export const StyleGuide: React.FC = () => {
             {[1, 2, 3, 4, 5, 6, 8, 10, 12, 16].map((size) => (
               <div key={size} className="d-flex items-center">
                 <div 
-                  className="bg-primary-500"
+                  className="bg-primary"
                   style={{ 
                     width: `var(--spacing-${size})`, 
                     height: '24px',
@@ -109,7 +109,7 @@ export const StyleGuide: React.FC = () => {
           {['sm', 'md', 'lg', 'xl', '2xl', 'full'].map((size) => (
             <div key={size} className="text-center">
               <div 
-                className="w-16 h-16 bg-primary-500 mb-1"
+                className="w-16 h-16 bg-primary mb-1"
                 style={{ borderRadius: `var(--radius-${size})` }}
               ></div>
               <span className="caption">{size}</span>
@@ -138,13 +138,13 @@ export const StyleGuide: React.FC = () => {
       <section className="mb-8">
         <h2>Button Examples</h2>
         <div className="d-flex flex-wrap gap-2 mb-4">
-          <button className="bg-primary-500 text-inverse rounded-lg p-3 transition-fast hover:opacity-90">
+          <button className="bg-primary text-inverse rounded-lg p-3 transition-fast hover:opacity-90">
             Primary Button
           </button>
-          <button className="bg-transparent border border-solid border-neutral-200 text-primary rounded-lg p-3 transition-fast hover:bg-neutral-50">
+          <button className="bg-transparent border border-solid border-neutral-200 text-brand rounded-lg p-3 transition-fast hover:bg-neutral-50">
             Secondary Button
           </button>
-          <button className="bg-transparent text-primary-500 p-3 transition-fast hover:opacity-70">
+          <button className="bg-transparent text-brand p-3 transition-fast hover:opacity-70">
             Text Button
           </button>
         </div>

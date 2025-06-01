@@ -1,11 +1,12 @@
 import Image from "next/image";
-import DesignSystemPage from "./design-system/page";
+import React from 'react';
+import StyleGuide from '@/components/ui/StyleGuide';
 
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <DesignSystemPage />
+        <StyleGuide />
         {/* <Image
           className="dark:invert"
           src="/next.svg"
