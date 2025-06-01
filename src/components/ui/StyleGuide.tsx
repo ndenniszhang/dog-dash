@@ -12,8 +12,8 @@ export const StyleGuide: React.FC = () => {
   return (
     <div className="p-4">
       <div className="mb-8">
-        <h1>Dog-Dash Design System</h1>
-        <p>A comprehensive design system for the Dog-Dash application.</p>
+        <h1>Design System</h1>
+        <p>A comprehensive design system for the application with ligth and dark mode.</p>
         <button 
           onClick={toggleTheme}
           className="bg-primary text-inverse rounded-lg p-3 transition-fast hover:opacity-90"
