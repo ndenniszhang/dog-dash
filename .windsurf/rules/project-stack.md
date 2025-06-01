@@ -32,3 +32,6 @@ trigger: always_on
 - Implement dark mode support using Expo's useColorScheme.
 - Ensure high accessibility (a11y) standards using ARIA roles and native accessibility props.
 - Use react-native-reanimated and react-native-gesture-handler for performant animations and gestures.
+
+# Testing
+- Use jest as the cross plateform test framework

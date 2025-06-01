@@ -9,13 +9,12 @@ the target market is middle to uppder class pet owners.
 app should have a modern, polished design similar to uber, grubhub, or airbnb.
 
 project requirements documents are in ai\docs\prd.
-generated feature documents should go in ai\docs\features, in it's respective folders
-
+generated feature documents should go in ai\docs\features\{name}
 
 all UI/CSS framework descision have to be compatible React Native + EXPO for cross platform consistency.
 always use best practice for implementation.
 
-after each implementation verify project against documentation and update respective implementaion-plan.md.
+after each implementation verify project against specifications.
 </project>
 
 <code>
