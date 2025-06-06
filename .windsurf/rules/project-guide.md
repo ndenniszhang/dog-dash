@@ -1,36 +1,37 @@
 ---
-trigger: always_on
-description: when i want to plan out design for UI, backend API, or components
+trigger: manual
 ---
 
-<project>
-currently building MVP using Next.js.
-the target market is middle to uppder class pet owners.
-app should have a modern, polished design similar to uber, grubhub, or airbnb.
+# General Code Style & Formatting
+- Use functional and declarative programming patterns; avoid classes.
+- Prefer iteration and modularization over code duplication.
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+- Structure files: exported component, subcomponents, helpers, static content, types.
+- Follow Expo's official documentation for setting up and configuring projects.
 
-project requirements documents are in ai\docs\prd.
-generated feature documents should go in ai\docs\features\{name}
+# Naming Conventions
+- Use lowercase with dashes for directories (e.g., components/auth-wizard).
+- Favor named exports for components.
 
-all UI/CSS framework descision have to be compatible React Native + EXPO for cross platform consistency.
-always use best practice for implementation.
+# TypeScript Best Practices
+- Use TypeScript for all code; prefer interfaces over types.
+- Avoid any and enums; use explicit types and maps instead.
+- Use functional components with TypeScript interfaces.
+- Enable strict mode in TypeScript for better type safety.
 
-after each implementation verify project against specifications.
-</project>
+# Syntax & Formatting
+- Use the function keyword for pure functions.
+- Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements.
+- Use declarative JSX.
+- Use Prettier for consistent code formatting.
 
-<code>
-do not generate code until i say so.
-do not try to install dependencies. tell me what dependencies to install and wait for install then verify.
+# Styling & UI
+- Use Expo's built-in components for common UI patterns and layouts.
+- Implement responsive design with Flexbox and useWindowDimensions.
+- Use styled-components or Tailwind CSS for styling.
+- Implement dark mode support using Expo's useColorScheme.
+- Ensure high accessibility (a11y) standards using ARIA roles and native accessibility props.
+- Use react-native-reanimated and react-native-gesture-handler for performant animations and gestures.
 
-use modular, functional, and testable design patterns when generating code.
-generate unit tests for generated code.
-generated UI components should properly use responsive design principles for cross-platform consistency.
-</code>
-
-<feature>
-try to look for existing sass services when adding features.
-
-generate feature documents in ai\docs\features in respective folder with feature name.
-
-auth: will be implemented with clerk.com.
-map: will be implemented with google maps.
-</features>
+# Testing
+- Use jest as the cross plateform test framework
