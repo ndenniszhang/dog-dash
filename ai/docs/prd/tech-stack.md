@@ -65,13 +65,6 @@ This document outlines the technology choices for the Dog-Dash platform, organiz
 | **Zod** | Review validation | Validates rating and review data before submission |
 | **TanStack Query** | Data fetching | Fetches and displays rating data on profiles |
 
-### Cross-Cutting Frontend Components
-| Technology | Purpose | Implementation |
-|------------|---------|---------------|
-| **Gluestack UI v2** | UI component library | Provides consistent, accessible UI components across features |
-| **Zustand** | Global state management | Manages application-wide state where needed |
-| **react-hot-toast** | Notifications | Provides user feedback across all features |
-
 ## Development & Deployment Approach
 
 ### Monorepo Structure
