@@ -23,37 +23,39 @@ This document outlines the technology choices for the Dog-Dash platform, organiz
 | **React Hook Form** | Form handling | Powers profile creation and editing forms |
 | **Zod** | Data validation | Validates user and dog profile data before submission |
 | **next-cloudinary** | Image storage | Manages profile pictures and dog photos |
-| **Gluestick v2** | UI components | Provides form components, layouts, and UI elements for profiles |
+| **Gluestack UI v2** | UI components | Provides form components, layouts, and UI elements for profiles |
 
-### Feature 2: Location & Booking System
+### Feature 2: Location & Real-Time Tracking
 | Technology | Purpose | Implementation |
 |------------|---------|---------------|
 | **Google Maps** | Map display | Shows available walkers on map interface |
-| **Google Geocoding API** | Address search | Converts addresses to coordinates for location-based searches |
-| **Supabase with PostGIS** | Proximity search | Performs geospatial queries to find nearby walkers |
-| **date-fns** | Schedule management | Handles date/time calculations for availability windows |
-| **TanStack Query** | Data fetching | Manages walker data, availability, and booking state |
-| **React Hook Form** | Booking forms | Powers booking request forms |
-| **Zustand** | Booking state | Maintains booking flow state and user selections |
-
-### Feature 3: Real-Time Tracking
-| Technology | Purpose | Implementation |
-|------------|---------|---------------|
 | **Google Maps JavaScript API** | Live map display | Renders real-time walker position on map |
+| **Google Geocoding API** | Address search | Converts addresses to coordinates for location-based searches |
 | **Google Distance Matrix API** | ETA calculation | Estimates arrival times and walk distances |
+| **Supabase with PostGIS** | Proximity search | Performs geospatial queries to find nearby walkers |
 | **Supabase Realtime** | Real-time updates | Subscribes to location changes and status updates |
-| **Zustand** | State management | Maintains current walker position and trip status |
 | **TanStack Query** | Data synchronization | Handles polling and real-time data updates |
+| **Zustand** | State management | Maintains current walker position and trip status |
 | **react-hot-toast** | Status notifications | Displays walk status changes and important alerts |
 
-### Feature 4: Payments
+### Feature 3: Booking System & Payments
 | Technology | Purpose | Implementation |
 |------------|---------|---------------|
+| **Supabase** | Booking data & transactions | Stores booking details, history, and payment records |
+| **date-fns** | Schedule management | Handles date/time calculations for availability windows |
+| **React Hook Form** | Booking & payment forms | Powers booking request and payment information forms |
 | **Stripe** | Payment processing | Handles payment methods, transactions, and security |
-| **Cloudflare Workers** | Payment webhooks | Processes payment events securely |
-| **Supabase** | Transaction records | Stores booking and payment history |
-| **Zod** | Payment validation | Validates payment data before submission |
-| **React Hook Form** | Payment forms | Powers payment information collection forms |
+| **Cloudflare Workers** | Payment webhooks | Processes payment events and booking updates securely |
+| **TanStack Query** | Booking data | Manages walker availability and booking state |
+| **Zustand** | Booking state | Maintains booking flow state and user selections |
+| **Zod** | Form validation | Validates booking and payment data before submission |
+
+### Feature 4: Push Notifications
+| Technology | Purpose | Implementation |
+|------------|---------|---------------|
+| **Firebase Cloud Messaging** | Push notification service | Delivers real-time notifications for booking updates, walker arrival, and other events |
+| **Cloudflare Workers** | Notification triggers | Processes events and triggers appropriate notifications |
+| **Zustand** | Notification state | Manages notification permissions and user preferences |
 
 ### Feature 5: Rating & Review System
 | Technology | Purpose | Implementation |
@@ -66,7 +68,7 @@ This document outlines the technology choices for the Dog-Dash platform, organiz
 ### Cross-Cutting Frontend Components
 | Technology | Purpose | Implementation |
 |------------|---------|---------------|
-| **Gluestick v2** | UI component library | Provides consistent, accessible UI components across features |
+| **Gluestack UI v2** | UI component library | Provides consistent, accessible UI components across features |
 | **Zustand** | Global state management | Manages application-wide state where needed |
 | **react-hot-toast** | Notifications | Provides user feedback across all features |
 
@@ -82,7 +84,7 @@ After successful launch of the web MVP, the platform will expand to include mobi
 |------------|---------|---------------|
 | **React Native** | Mobile framework | Reuses business logic while providing native mobile experience |
 | **Expo** | Development platform | Simplifies mobile development and deployment processes |
-| **Gluestick v2** | UI components | Maintains design consistency between web and mobile |
+| **Gluestack UI v2** | UI components | Maintains design consistency between web and mobile |
 | **Detox** | E2E testing | Ensures reliable mobile app functionality |
 
 ## Development Phases
@@ -93,11 +95,11 @@ After successful launch of the web MVP, the platform will expand to include mobi
 - Simple payment processing
 - Minimal viable tracking capabilities
 - Basic rating system
+- Push notifications with Firebase Cloud Messaging
 
 ### Phase 2: Enhanced Features
 - Advanced analytics and monitoring (Amplitude, Sentry)
 - Comprehensive E2E testing (Cypress)
-- Push notifications
 - Enhanced UI/UX refinements
 - Performance optimizations
 
@@ -107,5 +109,4 @@ After successful launch of the web MVP, the platform will expand to include mobi
 - Platform-specific optimizations
 
 ## Outstanding Technology Decisions
-- **Push Notifications Provider:** Considering Firebase Cloud Messaging (FCM) or OneSignal for real-time booking notifications
 - **CI/CD Pipeline:** Need to establish continuous integration and deployment workflow specifics
