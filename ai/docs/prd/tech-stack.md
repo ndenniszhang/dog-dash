@@ -5,15 +5,20 @@ This document outlines the technology choices for the Dog-Dash platform, organiz
 
 ## Web MVP - Feature-Based Tech Stack
 
-### Foundation & Infrastructure
+### Core Development
 | Technology | Purpose | Implementation |
 |------------|---------|---------------|
 | **Next.js** | Application framework | Core framework providing routing, rendering, and API endpoints |
 | **TypeScript** | Type safety | Used throughout the application for code quality and developer experience |
-| **Cloudflare Workers** | API hosting | Serverless functions for backend operations |
-| **Terraform** | Infrastructure as Code | Manages cloud resources and deployment |
 | **Jest** | Testing | Unit and integration testing for all features |
 | **dotenv** | Environment configuration | Manages environment variables across development stages |
+
+### Infrastructure & DevOps
+| Technology | Purpose | Implementation |
+|------------|---------|---------------|
+| **Cloudflare Workers** | API hosting | Serverless functions for backend operations |
+| **Terraform** | Infrastructure as Code | Manages cloud resources and deployment |
+| **GitHub Actions** | CI/CD pipeline | Automates testing, building, and deployment workflows |
 
 ### Feature 1: User Onboarding & Profiles
 | Technology | Purpose | Implementation |
@@ -65,6 +70,17 @@ This document outlines the technology choices for the Dog-Dash platform, organiz
 | **Zod** | Review validation | Validates rating and review data before submission |
 | **TanStack Query** | Data fetching | Fetches and displays rating data on profiles |
 
+### Cross-Cutting Components
+| Technology | Purpose | Implementation |
+|------------|---------|---------------|
+| **TypeScript** | Type safety | Ensures code quality across all features and components |
+| **Gluestack UI v2** | UI component library | Provides consistent, accessible UI components across features |
+| **Zustand** | State management | Manages application-wide and feature-specific state |
+| **TanStack Query** | Data management | Handles data fetching, caching, and synchronization across features |
+| **Zod** | Schema validation | Provides type-safe validation for all forms and data structures |
+| **React Hook Form** | Form handling | Powers all forms throughout the application |
+| **react-hot-toast** | User notifications | Provides feedback for user actions across all features |
+
 ## Development & Deployment Approach
 
 ### Monorepo Structure
@@ -100,6 +116,3 @@ After successful launch of the web MVP, the platform will expand to include mobi
 - React Native mobile applications
 - Cross-platform feature parity
 - Platform-specific optimizations
-
-## Outstanding Technology Decisions
-- **CI/CD Pipeline:** Need to establish continuous integration and deployment workflow specifics
