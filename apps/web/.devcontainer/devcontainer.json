@@ -1,0 +1,34 @@
+{
+  "name": "Gemini CLI Project",
+  // 1. Specify the Docker image (or use "build": { "dockerfile": "Dockerfile" } if you have one)
+  "image": "us-docker.pkg.dev/gemini-code-dev/gemini-cli/sandbox:0.1.1",
+  // 2. Mount the local folder to a specific path inside the container
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
+  // 3. VS Code Customizations
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      },
+      "extensions": [
+        // Add extensions you want installed INSIDE the container (e.g., Python, Pylance)
+        // "ms-python.python"
+        // "google.geminicodeassist",
+        "esbenp.prettier-vscode",
+        "rangav.vscode-thunder-client",
+        "shd101wyy.markdown-preview-enhanced",
+        "oderwat.indent-rainbow",
+        "gruntfuggly.todo-tree"
+      ]
+    }
+  },
+  // Maps the container's GEMINI_API_KEY to your local host's GEMINI_API_KEY
+  // "remoteEnv": {
+  //   "GEMINI_API_KEY": "${localEnv:GEMINI_API_KEY}"
+  // }
+  // 4. (Optional) Run commands after the container is created
+  // "postCreateCommand": "pip install -r requirements.txt",
+  // 5. Connect as a specific user (optional, defaults to root)
+  // "remoteUser": "vscode"
+}
