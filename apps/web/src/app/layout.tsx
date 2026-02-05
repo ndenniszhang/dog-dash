@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import {
   ClerkProvider,
@@ -10,13 +10,8 @@ import {
 } from "@clerk/nextjs";
 import { ThemeProvider } from "../theme/ThemeProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -34,26 +29,26 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <ThemeProvider>
-          <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-          <header className="p-4 border-b border-gray-200">
-            <div className="container mx-auto flex justify-between items-center">
-              <h1 className="text-xl font-bold">Dog Dash</h1>
-              <div>
-                <SignedOut>
-                  <SignInButton mode="modal" />
-                </SignedOut>
-                <SignedIn>
-                  <UserButton showName />
-                </SignedIn>
+          <body className={`${inter.variable} antialiased`}>
+            <header className="p-4 border-b border-gray-200">
+              <div className="container mx-auto flex justify-between items-center">
+                <h1 className="text-xl font-bold">Dog Dash</h1>
+                <div>
+                  <SignedOut>
+                    <SignInButton mode="modal" />
+                  </SignedOut>
+                  <SignedIn>
+                    <UserButton showName />
+                  </SignedIn>
+                </div>
               </div>
-            </div>
-          </header>
-          <main className="container mx-auto p-4">
-            <SignedIn>
-              {children}
-            </SignedIn>
-          </main>
-        </body>
+            </header>
+            <main className="container mx-auto p-4">
+              <SignedIn>
+                {children}
+              </SignedIn>
+            </main>
+          </body>
         </ThemeProvider>
       </html>
     </ClerkProvider>

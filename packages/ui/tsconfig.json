@@ -1,0 +1,9 @@
+{
+    "extends": "@dog-dash/config/tsconfig.base.json",
+    "compilerOptions": {
+        "jsx": "react-native"
+    },
+    "include": [
+        "src"
+    ]
+}
