@@ -28,3 +28,5 @@ yarn-error.log*
 # turbo
 .turbo
 node_modules
+
+analysis/
