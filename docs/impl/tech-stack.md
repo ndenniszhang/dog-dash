@@ -13,6 +13,13 @@ This document outlines the technology choices for the Dog-Dash platform, organiz
 | **Jest** | Testing | Unit and integration testing for all features |
 | **dotenv** | Environment configuration | Manages environment variables across development stages |
 
+### Architectural Patterns & Standards
+| Pattern | Implementation Strategy |
+|---------|------------------------|
+| **Solito** | **Unified Navigation:** Uses `solito` to bridge Next.js router (Web) and React Navigation (Native). |
+| **Strict Pinning** | **Dependency Management:** Enforces exact versions of `react`/* via `overrides` to prevent monorepo conflicts. |
+| **Service Layer** | **Abstraction:** All external services (Supabase, Stripe) must be wrapped in TypeScript interfaces/classes. |
+
 ### Infrastructure & DevOps
 | Technology | Purpose | Implementation |
 |------------|---------|---------------|

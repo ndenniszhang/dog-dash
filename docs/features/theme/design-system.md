@@ -203,6 +203,15 @@ export const darkTheme = {
 
 3. **Design Handoff**
    - Maintain a Figma/Sketch library in sync with code
+
+4.  **Wrap and Constrain (Strict Rule)**
+    *   **NEVER** import Gluestack components (e.g., `<Button>`) directly in feature code (`apps/web` or `apps/expo`).
+    *   **ALWAYS** wrap them in your own `packages/ui` components (e.g., `<AppButton>`).
+    *   *Reason:* This protects the app from breaking changes in the UI library and enables easier migration in the future.
+
+5.  **Logic Separation (The "Dumb UI" Rule)**
+    *   **UI is for Presentation Only:** Components should take data as props or get it from a single "Feature Hook".
+    *   **No Logic in JSX:** Avoid complex `useEffect` or data manipulation inside UI components. Move it to the hook.
   
 ## Implementation Notes
 - All measurements are in density-independent pixels (dp)
