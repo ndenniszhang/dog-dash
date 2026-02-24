@@ -1,57 +1,39 @@
 # Dog-Dash Implementation Plan - MVP Focus
 
-## Architectural Standards & Mitigation Strategies
+This plan covers the high-level implementation for all MVP features outlined in the Product Requirements Document (PRD).
 
-**Adherence to these standards is mandatory to ensure mitigating identified architectural risks.**
+The AI agent should complete each feature one at a time. The detailed planning for each feature should occur at the time of implementation, with reference to the PRD.
 
-1.  **Dependency Pinning:** 
-    *   Strictly pin versions for `react`, `react-dom`, and `react-native` in `package.json` utilizing `overrides` or `resolutions` to prevent version conflicts.
-2.  **Service Layer Pattern (Repository Pattern):**
-    *   **NEVER** call `supabase` directly in UI components.
-    *   **ALWAYS** define a Service Interface (e.g., `UserService`) and implement a concrete class (e.g., `SupabaseUserService`).
-3.  **Encapsulated Logic Pattern (The Feature Hook Rule):**
-    *   **Strict Gateway:** The "Feature Hooks" directory is the *only* public API for the UI layer.
-    *   **Abstraction:** UI Components must **NEVER** import SDKs (`clerk`, `supabase`, `stripe`), API keys, or raw `fetch` calls.
-    *   **Responsibility:** Feature Hooks (e.g., `useBookingFlow`) must encapsulate all business logic, state management, and data access. They return only the data and action handlers needed by the UI.
-4.  **Platform Splitting:**
-    *   Use `.native.tsx` and `.web.tsx` extensions for complex interactive components (e.g., Maps) to ensure native-like experiences.
+---
 
-## Feature 1: User Onboarding & Authentication
-**Objective:** Provide secure and simple user registration and login.
-- [ ] Implement sign-up flow with both OAuth and email/password.
-- [ ] Develop login functionality with secure token management.
-- [ ] Validate inputs and display meaningful error feedback.
+## Part 1: Design System (UI/UX)
+**Objective:** Provide a modern and user-friendly interface for both web and mobile, fulfilling the UI/UX requirement.
 
-## Feature 2: Walker Profiles
-**Objective:** Enable walkers to create and manage their service profiles.
-- [ ] Build a profile creation form capturing availability and dog size preferences.
-- [ ] Integrate a mechanism for collecting and displaying owner ratings.
+- [x] **Feature 1.1: Theme Configuration & Base Setup** (Theme files, Provider, Base styles)
+- [ ] **Feature 1.2: UI Components** (Primitives, Forms, Feedback, Navigation)
+- [ ] **Feature 1.3: Design System Utilities** (Color, Typography, Spacing, Hooks)
+- [ ] **Feature 1.4: App Integration & Polish** (Documentation, Testing, Integration)
 
-## Feature 3: Owner Profiles & Dog Profiles
-**Objective:** Allow owners to register, create profiles, and add dog profiles.
-- [ ] Implement owner registration flow with profile management.
-- [ ] Create a dog profile module to store name, breed, temperament, and other details.
-- [ ] Enable updating and retrieval of profile information.
+---
 
-## Feature 4: Availability & Booking
-**Objective:** Allow owners to view available walkers and book a walk.
-- [ ] Develop a dashboard displaying real-time walker availability.
-- [ ] Implement booking request and confirmation flows.
-- [ ] Interface with a backend module for booking management.
+## Part 2: Authentication & User Onboarding
+**Objective:** Provide secure user registration, metadata handling, and comprehensive onboarding flows for owners and walkers.
 
-## Feature 5: In-App Payments
-**Objective:** Enable secure money transfers between owners and walkers with commission routing.
-- [ ] Integrate a third-party payment gateway for processing transactions.
-- [ ] Develop payment processing and commission distribution logic.
-- [ ] Handle payment errors and provide user feedback.
+- [x] **Feature 2.1: Authentication Setup** (Clerk, OAuth, Webhooks)
+- [ ] **Feature 2.2: Shared Onboarding Components** (Forms, Maps, Uploaders)
+- [ ] **Feature 2.3: User Role Selection** (Owner vs. Walker flow divergence)
+- [ ] **Feature 2.4: Pet Owner Onboarding Flow** (Profile, Pet Details, Payment Setup)
+- [ ] **Feature 2.5: Dog Walker Onboarding Flow** (Profile, Background Check, Services, Payment)
+- [ ] **Feature 2.6: Onboarding Infrastructure** (Database, Middleware, Analytics)
 
-## Feature 6: GPS Tracking
-**Objective:** Provide real-time tracking of walker location during a booking.
-- [ ] Integrate a GPS API to capture and update location data.
-- [ ] Develop a live map view for users to monitor walk progress.
-- [ ] Ensure smooth and frequent updates of location data.
+---
 
-## Feature 7: Rating & Review System
-**Objective:** Facilitate mutual feedback to build trust and maintain quality.
-- [ ] Implement a post-walk rating and review submission process.
-- [ ] Store and display ratings on both walker and owner profiles.
+## Part 3: Core Application Features
+**Objective:** Deliver the primary functionality for scheduling and managing dog walks, per MVP requirements.
+
+- [ ] **Feature 3.1: Walker Profiles** (Availability and preferences)
+- [ ] **Feature 3.2: Owner & Dog Profiles** (Registration, dog profiles)
+- [ ] **Feature 3.3: Availability & Booking** (Dashboard, booking flow)
+- [ ] **Feature 3.4: In-App Payments** (Payment gateway, commission)
+- [ ] **Feature 3.5: GPS Tracking** (Location updates, live map)
+- [ ] **Feature 3.6: Rating & Review System** (Post-walk feedback)
