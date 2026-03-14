@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import {
   ClerkProvider,
@@ -9,11 +8,6 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { ThemeProvider } from "../theme/ThemeProvider";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -29,7 +23,7 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <ThemeProvider>
-          <body className={`${inter.variable} antialiased`}>
+          <body className="antialiased">
             <header className="p-4 border-b border-gray-200">
               <div className="container mx-auto flex justify-between items-center">
                 <h1 className="text-xl font-bold">Dog Dash</h1>

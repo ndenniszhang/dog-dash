@@ -1,7 +1,7 @@
 "use client"
 
 import React, { createContext, useContext, useEffect, useState, ReactNode, useMemo } from 'react';
-import { ThemeProvider as StyledThemeProvider } from 'styled-components/native';
+import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { Theme, theme as defaultTheme, ThemeMode } from './index';
 
 interface ThemeProviderProps {

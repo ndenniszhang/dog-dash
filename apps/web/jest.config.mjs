@@ -13,10 +13,10 @@ const config = {
   },
   transform: {
     '^.+\\.(ts|tsx)$': ['ts-jest', {
-      tsconfig: 'tsconfig.json',
+      tsconfig: 'tsconfig.test.json',
     }],
   },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.mjs'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
