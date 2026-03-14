@@ -17,6 +17,7 @@
     "@react-navigation/native": "^7.1.28",
     "@react-navigation/native-stack": "^7.12.0",
     "@styled-system/theme-get": "^5.1.2",
+    "@tanstack/react-query": "^5.90.21",
     "next": "14.2.23",
     "polished": "^4.3.1",
     "react": "18.2.0",
