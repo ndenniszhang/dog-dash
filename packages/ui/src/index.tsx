@@ -1,29 +1,25 @@
-import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
-import styled from 'styled-components/native';
+export { Text } from './components/Text';
+export type { TextProps, TextVariant, TextWeight, TextAlign } from './components/Text';
 
-const StyledButton = styled(TouchableOpacity)`
-  padding: 10px 20px;
-  background-color: #007AFF;
-  border-radius: 8px;
-  align-items: center;
-  justify-content: center;
-`;
+export { Button } from './components/Button';
+export type { ButtonProps, ButtonVariant, ButtonSize } from './components/Button';
 
-const ButtonText = styled(Text)`
-  color: white;
-  font-weight: bold;
-`;
+export { Input } from './components/Input';
+export type { InputProps } from './components/Input';
 
-interface ButtonProps {
-    title: string;
-    onPress: () => void;
-}
+export { Card } from './components/Card';
+export type { CardProps, CardVariant } from './components/Card';
 
-export const Button = ({ title, onPress }: ButtonProps) => {
-    return (
-        <StyledButton onPress={onPress}>
-            <ButtonText>{title}</ButtonText>
-        </StyledButton>
-    );
-};
+export { Badge } from './components/Badge';
+export type { BadgeProps, BadgeVariant, BadgeSize } from './components/Badge';
+
+export { Avatar } from './components/Avatar';
+export type { AvatarProps, AvatarSize } from './components/Avatar';
+
+export { Divider } from './components/Divider';
+export type { DividerProps, DividerOrientation } from './components/Divider';
+
+export { Stack, VStack, HStack } from './components/Stack';
+export type { StackProps } from './components/Stack';
+
+export { colors, space, radii, fontSizes, fontWeights } from './tokens';
