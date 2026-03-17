@@ -30,3 +30,8 @@ yarn-error.log*
 node_modules
 
 analysis/
+
+# Cloudflare / OpenNext build artifacts
+.open-next
+.worker-next
+cloudflare-env.d.ts
