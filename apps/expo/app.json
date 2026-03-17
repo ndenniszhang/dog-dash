@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "Dog Dash",
+    "slug": "dog-dash",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "experiments": {
+      "reactNativeDevTools": false
+    }
+  }
+}
