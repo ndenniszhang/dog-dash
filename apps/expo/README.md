@@ -17,17 +17,23 @@ It is recommended to run commands from the root of the monorepo.
 
 ### Prerequisites (Linux)
 
-The new React Native DevTools requires `libnspr4`. If you see an error about `libnspr4.so` when starting Expo, install it:
+Expo's React Native DevTools (`@react-native/debugger-shell`) requires `libnspr4`. The start scripts set `EXPO_UNSTABLE_HEADLESS=1` to skip auto-launching DevTools, which avoids this error.
+
+To use React Native DevTools interactively (press `j` in the terminal), install the library first:
 
 ```bash
 sudo apt-get install libnspr4
 ```
 
-The DevTools debugger is disabled by default in `app.json` (`experiments.reactNativeDevTools: false`) to avoid this error. Re-enable it once the system library is installed.
+Then run Expo without the env var:
+
+```bash
+npx expo start
+```
 
 ### Development
 ```bash
-npx expo start
+npm start
 ```
 or via Turbo from the root:
 ```bash
