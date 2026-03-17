@@ -25,8 +25,8 @@ Dog-Dash is an on-demand dog walking platform inspired by Uber’s rider-sharing
 - **User Onboarding:** Sign-up and profile creation flows for Owners and Walkers using OAuth providers or email/password combos.
 - **Authentication:** Secure user login with OAuth or email/password verification.
 - **Walker Profiles:** Walkers can create profiles detailing availability and dog size preferences, including owner ratings/reviews.
-- **Owner Profiles:** Owners can create profiles and add dog profiles, along with walker ratings/reviews.
-- **Dog Profiles:** Owners can create profiles for their dogs capturing name, breed, size, temperament, and special considerations.
+- **Owner Profiles:** Owners can create profiles and add their primary dog profile during onboarding, along with walker ratings/reviews.
+- **Dog Profiles:** Owners can create profiles for their dogs capturing name, breed, size, temperament, and special considerations. Owners add one dog during initial onboarding and can add more from their dashboard post-onboarding.
 - **Availability & Booking:** Owners can view available walkers nearby and request bookings.
 - **Payments:** Integration with a third-party secure payment processor, including commission routing.
 - **Rating/Review System:** A mechanism for both parties to rate each other after a completed booking.

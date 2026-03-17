@@ -129,7 +129,7 @@ export default function WalkerBackgroundPage() {
                   <input
                     {...register(`ref${n}Name` as 'ref1Name' | 'ref2Name')}
                     placeholder="Jane Doe"
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   {errors[`ref${n}Name` as keyof typeof errors] && (
                     <p className="text-xs text-red-600 mt-1">{(errors[`ref${n}Name` as keyof typeof errors] as { message?: string })?.message}</p>
@@ -140,7 +140,7 @@ export default function WalkerBackgroundPage() {
                   <input
                     {...register(`ref${n}Phone` as 'ref1Phone' | 'ref2Phone')}
                     placeholder="(415) 555-0000"
-                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
               </div>

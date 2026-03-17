@@ -85,7 +85,7 @@ export default function WalkerPaymentPage() {
             {...register('routingNumber')}
             placeholder="110000000"
             maxLength={9}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-900 bg-white font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {errors.routingNumber && <p className="text-xs text-red-600 mt-1">{errors.routingNumber.message}</p>}
         </div>
@@ -96,7 +96,7 @@ export default function WalkerPaymentPage() {
             {...register('accountNumber')}
             placeholder="000123456789"
             type="password"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-900 bg-white font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {errors.accountNumber && <p className="text-xs text-red-600 mt-1">{errors.accountNumber.message}</p>}
         </div>
@@ -108,7 +108,7 @@ export default function WalkerPaymentPage() {
             placeholder="1234"
             maxLength={4}
             type="password"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-900 bg-white font-mono focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {errors.taxId && <p className="text-xs text-red-600 mt-1">{errors.taxId.message}</p>}
         </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import { useAuth } from '@/hooks/useAuth';
 import { useNotificationStore } from '@/lib/store';
@@ -9,9 +9,17 @@ import { useEffect } from 'react';
 import { notificationService } from '@/services/notification.service';
 
 export function AppNav() {
+  const router = useRouter();
   const pathname = usePathname();
-  const { user, role, onboardingComplete } = useAuth();
+  const { user, role, onboardingComplete, isSignedIn, isLoaded } = useAuth();
   const { unreadCount, setUnreadCount } = useNotificationStore();
+
+  // Redirect to home if signed out and not on root
+  useEffect(() => {
+    if (isLoaded && !isSignedIn && pathname !== '/') {
+      router.push('/');
+    }
+  }, [isLoaded, isSignedIn, pathname, router]);
 
   // Load unread count
   useEffect(() => {

@@ -28,7 +28,7 @@ This document outlines the onboarding process for pet owners in the Dog Dash app
   - Push notifications
 
 ### 4. Pet Profile Creation
-- Multi-step form for adding pets:
+- Single-step form for adding the primary dog:
   - Basic pet information:
     - Name
     - Species/breed
@@ -73,4 +73,5 @@ This document outlines the onboarding process for pet owners in the Dog Dash app
 ## Post-Onboarding
 - Welcome email with next steps
 - Dashboard introduction
+- Option to add additional dogs from the profile dashboard
 - Promotional offer for first walk booking

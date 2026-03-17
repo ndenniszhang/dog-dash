@@ -25,6 +25,14 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
+const Field = ({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) => (
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
+    {children}
+    {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
+  </div>
+);
+
 export default function OwnerProfilePage() {
   const router = useRouter();
   const { updateOwnerProfile } = useProfile();
@@ -66,20 +74,14 @@ export default function OwnerProfilePage() {
     router.push('/onboarding/owner/pets');
   };
 
-  const Field = ({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) => (
-    <div>
-      <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
-      {children}
-      {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
-    </div>
-  );
+
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const input = (name: keyof FormData, placeholder = '') =>
     <input
       {...(register as any)(name)}
       placeholder={placeholder}
-      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
     />;
 
   return (

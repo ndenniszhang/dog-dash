@@ -103,7 +103,7 @@ function NewBookingForm() {
             {...register('scheduledStart')}
             type="datetime-local"
             min={new Date().toISOString().slice(0, 16)}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {errors.scheduledStart && <p className="text-xs text-red-600 mt-1">{errors.scheduledStart.message}</p>}
         </div>
@@ -170,7 +170,7 @@ function NewBookingForm() {
             {...register('notes')}
             rows={3}
             placeholder="Access instructions, key code, special requests…"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
           />
         </div>
 

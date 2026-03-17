@@ -22,6 +22,14 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
+const Field = ({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) => (
+  <div>
+    <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
+    {children}
+    {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
+  </div>
+);
+
 export default function WalkerProfilePage() {
   const router = useRouter();
   const { updateWalkerProfile } = useProfile();
@@ -60,17 +68,11 @@ export default function WalkerProfilePage() {
     <input
       {...(register as any)(name)}
       placeholder={placeholder}
-      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+      className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
   );
 
-  const Field = ({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) => (
-    <div>
-      <label className="block text-sm font-medium text-gray-700 mb-1">{label}</label>
-      {children}
-      {error && <p className="text-xs text-red-600 mt-1">{error}</p>}
-    </div>
-  );
+
 
   return (
     <div className="max-w-lg mx-auto">
@@ -99,7 +101,7 @@ export default function WalkerProfilePage() {
             {...register('bio')}
             rows={4}
             placeholder="Tell pet owners about your experience with dogs, any certifications, and what makes you a great walker…"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
           />
         </Field>
 

@@ -6,12 +6,14 @@
  */
 
 import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useUser, useClerk } from '@clerk/nextjs';
 import { useAuthStore } from '@/lib/store';
 import { userService } from '@/services/user.service';
 import type { UserRole } from '@/types';
 
 export function useAuth() {
+  const router = useRouter();
   const { user: clerkUser, isLoaded: clerkLoaded } = useUser();
   const { signOut } = useClerk();
   const { user, isLoaded, setUser, setLoaded } = useAuthStore();
@@ -54,8 +56,12 @@ export function useAuth() {
   };
 
   const handleSignOut = async () => {
-    await signOut();
     useAuthStore.getState().reset();
+    try {
+      await signOut({ redirectUrl: '/' });
+    } catch {
+      window.location.href = '/';
+    }
   };
 
   return {

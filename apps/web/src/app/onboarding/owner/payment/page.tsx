@@ -75,7 +75,7 @@ export default function OwnerPaymentPage() {
             {...register('cardNumber')}
             placeholder="4242 4242 4242 4242"
             maxLength={19}
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono tracking-wider"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono tracking-wider"
           />
           {errors.cardNumber && <p className="text-xs text-red-600 mt-1">{errors.cardNumber.message}</p>}
         </div>
@@ -87,7 +87,7 @@ export default function OwnerPaymentPage() {
               {...register('expiry')}
               placeholder="12/26"
               maxLength={5}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
             />
             {errors.expiry && <p className="text-xs text-red-600 mt-1">{errors.expiry.message}</p>}
           </div>
@@ -98,7 +98,7 @@ export default function OwnerPaymentPage() {
               placeholder="123"
               maxLength={4}
               type="password"
-              className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono"
             />
             {errors.cvv && <p className="text-xs text-red-600 mt-1">{errors.cvv.message}</p>}
           </div>
@@ -109,7 +109,7 @@ export default function OwnerPaymentPage() {
           <input
             {...register('nameOnCard')}
             placeholder="Alice Johnson"
-            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-900 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
           {errors.nameOnCard && <p className="text-xs text-red-600 mt-1">{errors.nameOnCard.message}</p>}
         </div>
