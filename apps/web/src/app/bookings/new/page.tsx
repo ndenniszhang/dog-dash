@@ -36,7 +36,7 @@ function NewBookingForm() {
     defaultValues: { duration: 60, petIds: [] },
   });
 
-  const duration = watch('duration');
+  const duration = Number(watch('duration'));
   const scheduledStart = watch('scheduledStart');
   const selectedPets = watch('petIds');
 
@@ -116,16 +116,18 @@ function NewBookingForm() {
               const p = walker?.pricing[d];
               if (!p) return null;
               return (
-                <label
-                  key={d}
-                  className={`cursor-pointer p-3 rounded-xl border-2 text-center transition-all ${
-                    duration === d ? 'border-blue-600 bg-blue-50' : 'border-gray-200 hover:border-blue-300'
-                  }`}
-                >
-                  <input type="radio" value={d} {...register('duration')} className="sr-only" />
-                  <div className="font-bold text-gray-900">{d} min</div>
-                  <div className="text-sm text-blue-600 font-semibold">${(p / 100).toFixed(0)}</div>
-                </label>
+                  <label
+                    key={d}
+                    className={`cursor-pointer p-3 rounded-xl border-2 text-center transition-all ${
+                      duration === d 
+                        ? 'border-blue-600 bg-blue-50 text-blue-900' 
+                        : 'border-gray-200 hover:border-blue-300 text-gray-700'
+                    }`}
+                  >
+                    <input type="radio" value={d} {...register('duration')} className="sr-only" />
+                    <div className="font-bold">{d} min</div>
+                    <div className="text-sm font-semibold">${(p / 100).toFixed(0)}</div>
+                  </label>
               );
             })}
           </div>
