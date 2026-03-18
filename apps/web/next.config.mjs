@@ -25,6 +25,11 @@ const nextConfig = {
     };
     return config;
   },
+  turbopack: {
+    resolveAlias: {
+      'react-native': 'react-native-web'
+    }
+  },
 };
 
 export default nextConfig;
