@@ -10,13 +10,17 @@ const config = {
       '<rootDir>/__mocks__/fileMock.js',
     // Handle style imports
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    // Redirect React Native styled-components to web version for jsdom compatibility
+    '^styled-components/native$': 'styled-components',
+    // Mock Next.js Image component
+    '^next/image$': '<rootDir>/__mocks__/nextImageMock.tsx',
   },
   transform: {
     '^.+\\.(ts|tsx)$': ['ts-jest', {
-      tsconfig: 'tsconfig.json',
+      tsconfig: 'tsconfig.test.json',
     }],
   },
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.mjs'],
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/'],
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
