@@ -1,8 +1,8 @@
 name = "dog-dash"
-main = ".worker-next/index.mjs"
+main = ".open-next/worker.js"
 compatibility_date = "2025-04-01"
 compatibility_flags = ["nodejs_compat"]
-assets = { directory = ".worker-next/assets", binding = "ASSETS" }
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
 
 # Environment variables — set secrets via `wrangler secret put <KEY>`
 # or in the Cloudflare dashboard under Workers > dog-dash > Settings > Variables.

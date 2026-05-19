@@ -61,36 +61,36 @@ export default function WalkerTrainingPage() {
     <div className="max-w-lg mx-auto">
       <ProgressBar current={5} total={5} labels={['Profile', 'Background', 'Schedule', 'Payout', 'Done']} />
 
-      <h2 className="text-2xl font-bold text-gray-900 mb-1">Safety Training</h2>
-      <p className="text-gray-500 text-sm mb-6">Review each protocol, then certify your commitment to pet safety.</p>
+      <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">Safety Training</h2>
+      <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">Review each protocol, then certify your commitment to pet safety.</p>
 
       <div className="space-y-3 mb-6">
         {PROTOCOLS.map((p) => (
-          <div key={p.id} className="border border-gray-200 rounded-xl overflow-hidden">
+          <div key={p.id} className="border border-gray-200 dark:border-gray-800 rounded-xl overflow-hidden">
             <button
               onClick={() => setExpanded(expanded === p.id ? null : p.id)}
-              className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition-colors"
+              className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
             >
               <div className="flex items-center gap-3">
                 <button
                   onClick={(e) => { e.stopPropagation(); toggleRead(p.id); }}
                   className={`w-5 h-5 rounded border-2 flex-shrink-0 flex items-center justify-center transition-colors ${
-                    read.has(p.id) ? 'border-green-500 bg-green-500 text-white' : 'border-gray-300'
+                    read.has(p.id) ? 'border-green-500 bg-green-500 text-white' : 'border-gray-300 dark:border-gray-600 dark:bg-gray-800'
                   }`}
                 >
                   {read.has(p.id) && <span className="text-xs">✓</span>}
                 </button>
-                <span className="font-medium text-sm text-gray-900">{p.title}</span>
+                <span className="font-medium text-sm text-gray-900 dark:text-gray-100">{p.title}</span>
               </div>
-              <span className="text-gray-400 text-xs">{expanded === p.id ? '▲' : '▼'}</span>
+              <span className="text-gray-400 dark:text-gray-500 text-xs">{expanded === p.id ? '▲' : '▼'}</span>
             </button>
             {expanded === p.id && (
-              <div className="px-4 pb-4 text-sm text-gray-600 bg-gray-50 border-t border-gray-100">
+              <div className="px-4 pb-4 text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-100 dark:border-gray-800">
                 <p className="pt-3">{p.desc}</p>
                 {!read.has(p.id) && (
                   <button
                     onClick={() => toggleRead(p.id)}
-                    className="mt-3 text-blue-600 text-xs font-semibold hover:underline"
+                    className="mt-3 text-blue-600 dark:text-blue-400 text-xs font-semibold hover:underline"
                   >
                     Mark as read ✓
                   </button>
@@ -101,21 +101,21 @@ export default function WalkerTrainingPage() {
         ))}
       </div>
 
-      <div className={`p-4 rounded-xl border-2 mb-6 transition-colors ${canProceed ? 'border-green-500 bg-green-50' : 'border-gray-200 bg-gray-50'}`}>
+      <div className={`p-4 rounded-xl border-2 mb-6 transition-colors ${canProceed ? 'border-green-500 bg-green-50 dark:bg-green-900/20' : 'border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50'}`}>
         <label className="flex gap-3 cursor-pointer">
           <input
             type="checkbox"
             checked={certified}
             onChange={(e) => setCertified(e.target.checked)}
             disabled={!allRead}
-            className="mt-0.5 rounded text-green-600"
+            className="mt-0.5 rounded text-green-600 dark:bg-gray-800 dark:border-gray-600"
           />
-          <span className={`text-sm ${allRead ? 'text-gray-800' : 'text-gray-400'}`}>
+          <span className={`text-sm ${allRead ? 'text-gray-800 dark:text-gray-200' : 'text-gray-400 dark:text-gray-600'}`}>
             I have read and understood all safety protocols above. I certify that I will follow these guidelines on every walk I conduct through Dog Dash.
           </span>
         </label>
         {!allRead && (
-          <p className="text-xs text-gray-400 mt-2 ml-6">Read all {PROTOCOLS.length} protocols to enable this checkbox</p>
+          <p className="text-xs text-gray-400 dark:text-gray-500 mt-2 ml-6">Read all {PROTOCOLS.length} protocols to enable this checkbox</p>
         )}
       </div>
 
